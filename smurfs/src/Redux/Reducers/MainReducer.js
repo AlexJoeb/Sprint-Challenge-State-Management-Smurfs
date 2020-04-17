@@ -1,4 +1,4 @@
-import { ASYNC_START, ADD_SMURF_SUCCESS, FETCH_SMURF_SUCCESS, ASYNC_FAIL } from '../Actions/MainActions';
+import { ASYNC_START, UPDATE_SMURF, ASYNC_FAIL } from '../Actions/MainActions';
 
 const initState = {
     loading: false,
@@ -19,15 +19,7 @@ export default (state = initState, action) => {
                 loading: false,
                 error: action.payload,
             }
-        case FETCH_SMURF_SUCCESS: {
-            return {
-                ...state,
-                loading: false,
-                error: '',
-                smurfs: action.payload,
-            }
-        }
-        case ADD_SMURF_SUCCESS: {
+        case UPDATE_SMURF: {
             return {
                 ...state,
                 loading: false,

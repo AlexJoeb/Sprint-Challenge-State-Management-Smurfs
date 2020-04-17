@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 
 import { connect } from 'react-redux';
-// import { removeSmurf } from '../Redux/Actions/MainActions';
+import { removeSmurf } from '../Redux/Actions/MainActions';
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 
-export function SmurfList({ smurfs }) {
+export function SmurfList({ smurfs, removeSmurf }) {
     
     return (
         <ul css={css`
@@ -38,7 +38,7 @@ export function SmurfList({ smurfs }) {
                         <p>{item.age} years old</p>
                         <p>{item.height} tall</p>
                         <p
-                            
+                            onClick={() => removeSmurf(item.id)}
                             css={css`
                                 font-family: sans-serif;
                                 font-size: .7rem;
@@ -72,5 +72,5 @@ export function SmurfList({ smurfs }) {
 }
 
 export default connect(({ smurfs }) => ({ smurfs }), {
-    // removeSmurf
+    removeSmurf
 })(SmurfList);
